@@ -1,0 +1,28 @@
+# Test method
+GET localhost:8080/test
+
+### Add book
+POST localhost:8080/addBook
+Content-Type: application/json
+
+{
+  "name" : "Java Performance by Vladimir Sonkin, 2022"
+}
+
+### Add book
+POST localhost:8080/addBook
+Content-Type: application/json
+
+{
+  "name" : "Test book"
+}
+
+
+### get books
+GET localhost:8080/books
+
+### initialize books
+POST localhost:8080/generate/100000
+
+### similar
+GET localhost:8080/similar/Java
