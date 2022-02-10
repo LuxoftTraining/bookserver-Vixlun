@@ -3,6 +3,7 @@ package luxoft.training.bookserver.service;
 import luxoft.training.bookserver.model.Book;
 import luxoft.training.bookserver.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +22,7 @@ public class BookService {
         return bookRepository.findAll();
     }
 
+    @Cacheable(value = "bookCache", key = "#bookName")
     public List<Book> getBooksWithName(String bookName) {
         return Arrays.stream(bookName.split("\\s+")).map(str -> bookRepository.findBookByNameContaining(str))
                 .reduce((books, books2) -> {

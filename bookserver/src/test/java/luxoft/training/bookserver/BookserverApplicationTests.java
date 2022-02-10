@@ -35,7 +35,6 @@ class BookserverApplicationTests {
        repository.deleteAll();
     }
 
-
     @Test
     public void test_get_book() throws Exception {
         repository.save(new Book("Java Performance by Vladimir Sonkin, 2022"));
@@ -65,7 +64,6 @@ class BookserverApplicationTests {
             Assertions.assertFalse(result.isEmpty());
             Assertions.assertEquals("Java Performance by Vladimir Sonkin, 2022", result.get(0).getName());
         }
-
     }
 
 }

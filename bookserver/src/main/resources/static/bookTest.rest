@@ -22,7 +22,7 @@ Content-Type: application/json
 GET localhost:8080/books
 
 ### initialize books
-POST localhost:8080/generate/100000
+POST localhost:8080/generate/10000
 
 ### similar
-GET localhost:8080/similar/Java
+GET localhost:8080/similar/Test
