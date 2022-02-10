@@ -1,6 +1,3 @@
-# Test method
-GET localhost:8080/test
-
 ### Add book
 POST localhost:8080/addBook
 Content-Type: application/json
@@ -18,14 +15,14 @@ Content-Type: application/json
 }
 
 
-### get books
+### get all books
 GET localhost:8080/books
 
 ### initialize books
 POST localhost:8080/generate/10000
 
 ### similar
-GET localhost:8080/similar/Java Sonkin
+GET localhost:8080/similar/stream/Java Sonkin
 
 ### similar 2
-GET localhost:8080/similar2/Java Sonkin
+GET localhost:8080/similar/predicate/Java Sonkin

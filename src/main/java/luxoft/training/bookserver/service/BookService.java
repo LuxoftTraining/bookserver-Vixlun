@@ -22,8 +22,8 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    @Cacheable(value = "bookCache", key = "#bookName")
-    public List<Book> getBooksWithName(String bookName) {
+    @Cacheable(value = "bookCacheStream", key = "#bookName")
+    public List<Book> getSimilarBooksViaStream(String bookName) {
         return Arrays.stream(bookName.split("\\s+")).map(str -> bookRepository.findBookByNameContaining(str))
                 .reduce((books, books2) -> {
                     books.retainAll(books2);
@@ -31,8 +31,8 @@ public class BookService {
                 }).orElse(null);
     }
 
-    @Cacheable(value = "bookCache2", key = "#bookName")
-    public List<Book> getSimilarBooks(String bookName) {
+    @Cacheable(value = "bookCachePredicate", key = "#bookName")
+    public List<Book> getSimilarBooksViaPredicate(String bookName) {
         return bookRepository.findBookByNameContaining(Arrays.asList((bookName.split("\\s+"))));
     }
 

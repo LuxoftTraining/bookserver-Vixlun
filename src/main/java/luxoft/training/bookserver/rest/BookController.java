@@ -1,4 +1,4 @@
-package luxoft.training.bookserver;
+package luxoft.training.bookserver.rest;
 
 import luxoft.training.bookserver.model.Book;
 import luxoft.training.bookserver.service.BookService;
@@ -18,14 +18,14 @@ public class BookController {
         return bookService.getAllBooks();
     }
 
-    @GetMapping("/similar/{bookName}")
-    public List<Book> getBooksWithName(@PathVariable String bookName) {
-        return bookService.getBooksWithName(bookName);
+    @GetMapping("/similar/stream/{bookName}")
+    public List<Book> getSimilarBooksViaStream(@PathVariable String bookName) {
+        return bookService.getSimilarBooksViaStream(bookName);
     }
 
-    @GetMapping("/similar2/{bookName}")
-    public List<Book> getSimilarBooks(@PathVariable String bookName) {
-        return bookService.getSimilarBooks(bookName);
+    @GetMapping("/similar/predicate/{bookName}")
+    public List<Book> getSimilarBooksViaPredicate(@PathVariable String bookName) {
+        return bookService.getSimilarBooksViaPredicate(bookName);
     }
 
     @PostMapping("/generate/{count}")
