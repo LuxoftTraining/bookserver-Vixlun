@@ -23,6 +23,11 @@ public class BookController {
         return bookService.getBooksWithName(bookName);
     }
 
+    @GetMapping("/similar2/{bookName}")
+    public List<Book> getSimilarBooks(@PathVariable String bookName) {
+        return bookService.getSimilarBooks(bookName);
+    }
+
     @PostMapping("/generate/{count}")
     public void generateBooks(@PathVariable int count) {
         bookService.generateBooks(count);

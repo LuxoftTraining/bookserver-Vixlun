@@ -2,13 +2,13 @@ package luxoft.training.bookserver.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter @ToString
 @Table(indexes = @Index(columnList = "name"))
 public class Book implements Serializable {
 
@@ -23,13 +23,5 @@ public class Book implements Serializable {
 
     public Book(String name) {
         this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
     }
 }

@@ -31,6 +31,11 @@ public class BookService {
                 }).orElse(null);
     }
 
+    @Cacheable(value = "bookCache2", key = "#bookName")
+    public List<Book> getSimilarBooks(String bookName) {
+        return bookRepository.findBookByNameContaining(Arrays.asList((bookName.split("\\s+"))));
+    }
+
     @Transactional
     public void generateBooks(int count) {
         range(0, count).forEach(value -> addBook(new Book(UUID.randomUUID().toString())));

@@ -14,7 +14,7 @@ POST localhost:8080/addBook
 Content-Type: application/json
 
 {
-  "name" : "Test book"
+  "title" : "Test book"
 }
 
 
@@ -25,4 +25,7 @@ GET localhost:8080/books
 POST localhost:8080/generate/10000
 
 ### similar
-GET localhost:8080/similar/Test
+GET localhost:8080/similar/Java Sonkin
+
+### similar 2
+GET localhost:8080/similar2/Java Sonkin
